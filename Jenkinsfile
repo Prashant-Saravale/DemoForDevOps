@@ -12,16 +12,19 @@ pipeline {
             }
         }
 
-
-        steps {
-    script {
-        if (isUnix()) {
-            sh 'mvn clean install'
-        } else {
-            bat 'mvn clean install'
+ stages {
+        stage('Build') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'mvn clean install'
+                    } else {
+                        bat 'mvn clean install'
+                    }
+                }
+            }
         }
     }
-}
 
 
         stage('Deploy') {
