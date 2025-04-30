@@ -8,9 +8,10 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/Prashant-Saravale/DemoForDevOps.git'
+                git branch: 'main', url: 'https://github.com/Prashant-Saravale/DemoForDevOps.git'
             }
         }
+
 
         stage('Build') {
             steps {
