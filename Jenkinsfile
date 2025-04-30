@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven'  // This must match the name of Maven tool in Jenkins
+        maven 'maven'  // This must match the name configured in Jenkins -> Global Tool Configuration
     }
 
     stages {
@@ -12,7 +12,6 @@ pipeline {
             }
         }
 
- stages {
         stage('Build') {
             steps {
                 script {
@@ -24,8 +23,6 @@ pipeline {
                 }
             }
         }
-    }
-
 
         stage('Deploy') {
             steps {
