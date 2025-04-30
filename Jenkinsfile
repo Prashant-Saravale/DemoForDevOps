@@ -13,11 +13,16 @@ pipeline {
         }
 
 
-        stage('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
+        steps {
+    script {
+        if (isUnix()) {
+            sh 'mvn clean install'
+        } else {
+            bat 'mvn clean install'
         }
+    }
+}
+
 
         stage('Deploy') {
             steps {
